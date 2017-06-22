@@ -12,11 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $tittle='Walk In Closet';
+    $products=[
+            'ropa', 
+            'zapatos', 
+            'accesorios'
+    ];
+    return view('welcome',compact('tittle','products'));
 });
 
-Route::get('/catalogo', function () {
+Route::get('catalogo', function () {
 
-    $tittle='Catalogo de Productos';
-    return view('catalogo').compact($tittle);
+    $tittle='WalkIn Closet';
+    $products=[
+            'ropa', 
+            'zapatos', 
+            'accesorios'
+    ];
+    return view('catalogo',compact('tittle','products'));
+});
+
+Route::get('shop', function () {
+    return view('principal');
 });
