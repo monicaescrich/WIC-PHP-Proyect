@@ -20,9 +20,14 @@
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
     <!--Icons -->
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     
   </head>
 
   <body>
@@ -59,7 +64,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
          @section('sidebar')
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Rebajas <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">Ofertas <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Accesorios</a></li>
             <li><a href="#">Pantalones</a></li>
             <li><a href="#">Blusas</a></li>
@@ -71,7 +76,7 @@
             <li><a href="">Accesorios</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Rebajas<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="#">SALE<span class="sr-only">(current)</span></a></li>
             
           </ul>
         @show
@@ -87,8 +92,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
-   <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- jQuery -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
