@@ -22,7 +22,7 @@
                 </div>
                 <div class="links">
                     @foreach($products as $product)
-                    <a href="https://laravel.com/docs">{{$product}}</a>
+                    <a href="/{{$product->descripcion}}">{{$product->descripcion}}</a>
                     @endforeach
                 </div>
             </div>

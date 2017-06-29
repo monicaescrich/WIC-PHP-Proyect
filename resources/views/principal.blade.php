@@ -5,10 +5,12 @@
 @section('sidebar')
     @parent
 
-    <p>This is appended to the master sidebar.</p>
+    
 @endsection
 
 @section('content')
+
+@php($pagina=$page)
     <div class="row carousel-holder">
 
                     <div class="col-md-12">
@@ -21,13 +23,23 @@
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
+                              @for ($i = 0; $i < 2; $i++)
+                                @if($i==0)
                             <div class="item active">
-                                <img src="/img/jeans.png" alt="Foto de jeans 'Con nosotros encuentras TODO' " style="width:100%;">
+                              @else  
+                              <div class="item ">
+                                @endif
+                                  @if ($pagina=='pantalones')
+                                <img src="/img/jeans{{$i}}.png" alt="Foto de jeans 'Con nosotros encuentras TODO' " style="width:100%;">
+                                  @elseif ($pagina=='accesorios')
+                                 <img src="/img/accesorios{{$i}}.png" alt="Foto de jeans 'Con nosotros encuentras TODO' " style="width:100%;">
+                                  @elseif ($pagina=='blusas')
+                                 <img src="/img/blusas{{$i}}.png" alt="Foto de jeans 'Con nosotros encuentras TODO' " style="width:100%;">
+                                 @endif
                             </div>
+                            @endfor
 
-                            <div class="item">
-                                <img src="/img/jeans2.png" alt="Chicago" style="width:100%;">
-                            </div>
+                            
                             
                             </div>
 
