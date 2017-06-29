@@ -11,16 +11,12 @@
 |
 */
 
-use App\categories; 
+ 
 
 Route::get('/', 'CategoriesController@index');
 
+Route::get('blusas', 'ProductsController@blusas');
 
-
-Route::get('blusas', function () {
-    $page="blusas";
-    return view('principal',compact('page'));
-});
 Route::get('pantalones', function () {
     $page="pantalones"; 
     return view('principal', compact('page'));
