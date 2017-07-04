@@ -12,21 +12,22 @@
 */
 
  
-
+//Categorias
 Route::get('/', 'CategoriesController@index');
 
+
+//Blusas
 Route::get('blusas', 'ProductsController@blusas');
+Route::post('blusas', 'ProductsController@addBlusas');
 
-Route::get('pantalones', function () {
-    $page="pantalones"; 
-    return view('principal', compact('page'));
-});
-Route::get('accesorios', function () {
-    $page="accesorios";
-    return view('principal', compact('page'));
-});
+//Carrito
+Route::get('carrito','carritoController@getCarrito');
 
-Route::get('login', function () {
+//Pantalones
+Route::get('pantalones', 'ProductsController@pantalones');
+Route::post('pantalones', 'ProductsController@addPantalones');
 
-    return view('login');
-});
+//Accesorios
+Route::get('accesorios', 'ProductsController@accesorios');
+Route::post('accesorios', 'ProductsController@addAccesorios');
+

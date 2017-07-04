@@ -47,7 +47,7 @@
             
             <li><a href="#"><i class="icon-user icon-large"></i></a></li>
             <li><a href="#">Mis Ordenes</a></li>
-            <li><a href="#"><i class="icon-shopping-cart icon-large"></i></a></li>
+            <li><a href="/carrito"><i class="icon-shopping-cart icon-large"><span class="badge">0</span></i></a></li>
             
           </ul>
           <form class="navbar-form navbar-right">
@@ -70,9 +70,9 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Nueva Temporada <span class="sr-only">(current)</span></a></li>
-            <li><a href="">Blusas</a></li>
-            <li><a href="">Pantalones</a></li>
-            <li><a href="">Accesorios</a></li>
+            <li><a href="/blusas">Blusas</a></li>
+            <li><a href="/pantalones">Pantalones</a></li>
+            <li><a href="/accesorios">Accesorios</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">SALE<span class="sr-only">(current)</span></a></li>
