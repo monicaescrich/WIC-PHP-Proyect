@@ -14,4 +14,11 @@ class carritoController extends Controller
     return view('carrito',compact('carrito','page'));
 
    }
+
+   public function deleteCarrito($id){
+      $page='Mi Carrito' ;
+      Cart::remove($id); 
+      $carrito=Cart::content();
+     return redirect()->action('carritoController@getCarrito');
+   }
 }

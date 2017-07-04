@@ -1,7 +1,3 @@
-@php
-use \Cart as Cart;
-$count=Cart::count();
-@endphp
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,18 +8,19 @@ $count=Cart::count();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
 
-    <title>WalkInCloset - @yield('title')</title>
+    <title>WalkInCloset Admin</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="{!! asset('css/dashboard.css') !!} " rel="stylesheet">
 
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="{!! asset('css/shop-homepage.css') !!}" rel="stylesheet">
 
     <!--Icons -->
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -48,11 +45,30 @@ $count=Cart::count();
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            
-            <li><a href="#"><i class="icon-user icon-large"></i></a></li>
-            <li><a href="#">Mis Ordenes</a></li>
-            <li><a href="/carrito"><i class="icon-shopping-cart icon-large"><span class="badge">{{$count}}</span></i></a></li>
-            
+            @if (Auth::guest())
+            <li><a href="{{ route('login') }}"><i class="icon-user icon-large"></i></a></li>
+            @else
+            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Salir
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+            @endif
+           
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Buscar...">
@@ -65,30 +81,26 @@ $count=Cart::count();
       <div class="row">
      
         <div class="col-sm-3 col-md-2 sidebar">
-         @section('sidebar')
+         <!--@section('sidebar')-->
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Ofertas <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Accesorios</a></li>
-            <li><a href="#">Pantalones</a></li>
-            <li><a href="#">Blusas</a></li>
+            <li class="active"><a href="{{ route('index_prod') }}">Productos <span class="sr-only">(current)</span></a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Nueva Temporada <span class="sr-only">(current)</span></a></li>
-            <li><a href="/blusas">Blusas</a></li>
-            <li><a href="/pantalones">Pantalones</a></li>
-            <li><a href="/accesorios">Accesorios</a></li>
+            <li class="active"><a href="{{ route('index_categ') }}">Categorias<span class="sr-only">(current)</span></a></li>
+            <li><a href="">Blusas</a></li>
+            <li><a href="">Pantalones</a></li>
+            <li><a href="">Accesorios</a></li>
           </ul>
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">SALE<span class="sr-only">(current)</span></a></li>
-            
-          </ul>
-        @show
+          
+        <!--@show-->
         </div>
      
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          @include('layouts._error')
           @yield('content')
-        </div>
+ 
       </div>
+    </div>
     </div>
 
     <!-- Bootstrap core JavaScript

@@ -55,7 +55,6 @@
 
                 </div>
 
-                <h3>{{$msg}}</h3>
 
                 <div class="row">
                 @foreach( $products as $product)
